@@ -1,9 +1,8 @@
 import MongoConnection from "./mongo/MongoConnection.mjs";
 const DB_NAME = 'sample_mflix';
-const MONGO_URI = 'mongodb+srv://nadele:D62wqRmrFbOX0ljG@cluster0.rffud.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const COLLECTION_MOVIES_NAME = "movies";
 const COLLECTION_COMMENTS_NAME = "comments";
-const mongoConnection = new MongoConnection(MONGO_URI, DB_NAME);
+const mongoConnection = new MongoConnection(process.env.MONGO_URI, DB_NAME);
 const collectionMovies = mongoConnection.getCollection(COLLECTION_MOVIES_NAME);
 const collectionComments = mongoConnection.getCollection(COLLECTION_COMMENTS_NAME);
 collectionComments.aggregate([
